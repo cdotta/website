@@ -1,0 +1,177 @@
+@import 'tailwindcss';
+
+/* Fonts — self-hosted via Fontsource (no external requests). */
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource/cormorant-garamond/500-italic.css';
+@import '@fontsource/cormorant-garamond/600-italic.css';
+
+@theme {
+  /* Dark (default) palette. Light overrides live in the :root[data-theme] rules below. */
+  --color-ink: #1a171e; /* page background — deep aubergine */
+  --color-panel: #221e27; /* raised sections */
+  --color-panel-2: #1e1b24; /* toolkit rows */
+  --color-fg: #e6dfea; /* primary text */
+  --color-fg-soft: #c9c2d0; /* body copy */
+  --color-mauve: #b8a8cc; /* accent */
+  --color-mauve-hi: #d5ccdd; /* accent hover */
+  --color-muted: #9a93a3; /* secondary text */
+  --color-faint: #6a6370; /* eyebrows / de-emphasis */
+  --color-ok: #8fbf9f; /* health / success accent */
+
+  --font-sans: 'Geist Variable', system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Theme tokens. Dark is the default (from @theme); light overrides here.
+   The no-FOUC script in the <head> sets data-theme before first paint. */
+:root {
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-ink: #f6f2ea; /* warm paper */
+  --color-panel: #ece3d6; /* raised sections */
+  --color-panel-2: #f0e8dc; /* toolkit rows */
+  --color-fg: #2a2530; /* primary text — deep plum-black */
+  --color-fg-soft: #4d4553; /* body copy */
+  --color-mauve: #6d4d97; /* accent — deepened for contrast on light */
+  --color-mauve-hi: #5a3d82; /* accent hover */
+  --color-muted: #6a6274; /* secondary text */
+  --color-faint: #9b90a4; /* eyebrows / de-emphasis */
+  --color-ok: #3f8a5a; /* health / success accent */
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  ::selection {
+    background: var(--color-mauve);
+    color: var(--color-ink);
+  }
+
+  a {
+    color: var(--color-mauve);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-mauve-hi);
+  }
+}
+
+@layer components {
+  /* Uppercase mono eyebrow used throughout. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+
+  /* Serif italic display — the signature voice of the design. */
+  .display {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+
+  .bullet {
+    display: flex;
+    gap: 12px;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--color-fg-soft);
+  }
+  .bullet > .dot {
+    color: var(--color-mauve);
+    flex-shrink: 0;
+  }
+  .bullet em {
+    color: var(--color-fg);
+    font-style: normal;
+  }
+
+  /* Pill CTA. */
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 999px;
+    background: var(--color-fg);
+    color: var(--color-ink);
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease;
+  }
+  .btn-solid:hover {
+    color: var(--color-ink);
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+  }
+
+  /* Nav theme toggle. */
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in oklab, var(--color-fg) 18%, transparent);
+    color: var(--color-muted);
+    cursor: pointer;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .theme-toggle:hover {
+    color: var(--color-fg);
+    border-color: color-mix(in oklab, var(--color-fg) 40%, transparent);
+  }
+  .theme-toggle .moon {
+    display: none;
+  }
+  :root[data-theme='light'] .theme-toggle .sun {
+    display: none;
+  }
+  :root[data-theme='light'] .theme-toggle .moon {
+    display: inline;
+  }
+}
+
+/* Reveal-on-scroll — respects reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
