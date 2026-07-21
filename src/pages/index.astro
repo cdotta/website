@@ -1,0 +1,425 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, hero, skills, experience, projects, earlier, education } from '../config';
+
+const nav = [
+  { label: 'the work', href: '#work' },
+  { label: 'toolkit', href: '#skills' },
+  { label: 'projects', href: '#projects' },
+  { label: 'contact', href: '#contact' },
+];
+---
+
+<Layout>
+  <div class="min-h-dvh overflow-x-hidden bg-ink">
+    <!-- NAV -->
+    <nav
+      class="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-7 sm:px-12"
+    >
+      <a href="#top" class="inline-flex items-center gap-[9px]">
+        <span class="relative inline-block h-[22px] w-[22px]">
+          <span
+            class="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-fg opacity-55"></span>
+          <span
+            class="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[1.4px] border-fg bg-ink"
+          ></span>
+        </span>
+        <span class="font-serif text-[21px] font-medium italic leading-none tracking-[-0.005em] text-fg">
+          {site.handle}
+        </span>
+      </a>
+      <div
+        class="flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.22em] text-muted sm:gap-[34px]"
+      >
+        {
+          nav.map((item) => (
+            <a href={item.href} class="hidden text-inherit hover:text-fg sm:inline">
+              {item.label}
+            </a>
+          ))
+        }
+        <a
+          href={site.resumePdf}
+          download
+          class="border-b border-fg pb-px font-serif text-[16px] font-medium italic normal-case tracking-[-0.005em] text-fg hover:text-fg"
+        >
+          résumé ↓
+        </a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light / dark">
+          <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path>
+          </svg>
+          <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section
+      id="top"
+      class="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 pb-16 pt-10 sm:px-12 lg:grid-cols-[1.15fr_0.85fr] lg:pb-20 lg:pt-14"
+    >
+      <div class="reveal min-w-0">
+        <div class="eyebrow mb-6">{site.kicker}</div>
+        <h1
+          class="display m-0 text-[clamp(44px,8vw,82px)] leading-[1.0] text-fg"
+        >
+          {hero.lines.map((line) => (<>{line}<br /></>))}
+          <span class="text-mauve">{hero.accentLine}</span>
+        </h1>
+        <p
+          class="mt-8 max-w-[640px] text-[17px] leading-[1.65] text-fg-soft [text-wrap:pretty] sm:text-[18px]"
+        >
+          Backend engineer with 13+ years building high-performance systems in
+          TypeScript and Node.js. Most recently led exchange engineering at a publicly
+          traded crypto company: a public API executing real-money trades across
+          external providers, where <span class="text-fg">reliability, idempotency, and
+          data integrity</span> are non-negotiable. Hands-on Solidity, and a daily
+          practitioner of AI-augmented engineering.
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-7">
+          <a href={site.resumePdf} download class="btn-solid">
+            download résumé
+            <span class="font-serif text-[16px] italic -translate-y-px">↓</span>
+          </a>
+          <a
+            href={`mailto:${site.email}`}
+            class="inline-flex items-center gap-2 border-b border-fg py-[13px] font-serif text-[17px] font-medium italic text-fg hover:text-fg"
+          >
+            get in touch
+          </a>
+        </div>
+
+        <div
+          class="mt-10 flex max-w-[640px] items-start gap-3 border-t border-fg/10 pt-[22px]"
+        >
+          <span class="pt-[3px] font-mono text-[11px] text-mauve">◇</span>
+          <div class="font-serif text-[17px] italic leading-[1.5] text-fg-soft">
+            {site.location}.
+            <br />
+            <span class="text-muted">{site.email} · {site.githubLabel}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO VISUAL — live API snippet card -->
+      <aside
+        class="reveal min-w-0 font-mono"
+        style="--reveal-delay: 120ms"
+        aria-hidden="true"
+      >
+        <div
+          class="overflow-hidden rounded-xl border border-fg/12 bg-panel/70 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.7)] backdrop-blur-sm"
+        >
+          <div
+            class="flex items-center gap-2 border-b border-fg/10 bg-panel-2/60 px-4 py-3"
+          >
+            <span class="h-[9px] w-[9px] rounded-full bg-mauve/70"></span>
+            <span class="h-[9px] w-[9px] rounded-full bg-fg/25"></span>
+            <span class="h-[9px] w-[9px] rounded-full bg-fg/15"></span>
+            <span class="ml-2 text-[10.5px] uppercase tracking-[0.2em] text-faint">
+              api · production
+            </span>
+          </div>
+          <div class="space-y-1 p-5 text-[12.5px] leading-[1.75]">
+            <div class="text-muted">
+              <span class="text-mauve">GET</span> /health
+            </div>
+            <div class="text-faint">{'{'}</div>
+            <div class="pl-4">
+              <span class="text-mauve">"status"</span><span class="text-faint">:</span>
+              <span class="text-ok">"ok"</span><span class="text-faint">,</span>
+            </div>
+            <div class="pl-4">
+              <span class="text-mauve">"service"</span><span class="text-faint">:</span>
+              <span class="text-fg-soft">"api"</span><span class="text-faint">,</span>
+            </div>
+            <div class="pl-4">
+              <span class="text-mauve">"db"</span><span class="text-faint">:</span>
+              <span class="text-fg-soft">"connected"</span><span class="text-faint">,</span>
+            </div>
+            <div class="pl-4">
+              <span class="text-mauve">"cache"</span><span class="text-faint">:</span>
+              <span class="text-fg-soft">"connected"</span>
+            </div>
+            <div class="text-faint">{'}'}</div>
+          </div>
+          <div
+            class="flex items-center justify-between border-t border-fg/10 px-5 py-3 text-[10.5px] uppercase tracking-[0.18em] text-faint"
+          >
+            <span>200 OK</span>
+            <span class="flex items-center gap-2">
+              <span class="h-[6px] w-[6px] rounded-full bg-ok"></span>
+              healthy
+            </span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SKILLS / TOOLKIT -->
+    <section
+      id="skills"
+      class="border-y border-fg/8 bg-panel px-6 py-20 sm:px-12 lg:py-28"
+    >
+      <div class="mx-auto max-w-[1100px]">
+        <div class="reveal">
+          <div class="eyebrow mb-[18px]">the toolkit</div>
+          <h2 class="display m-0 mb-14 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg">
+            what the day is built with.
+          </h2>
+        </div>
+
+        <div
+          class="reveal grid gap-px overflow-hidden rounded-lg border border-fg/8 bg-fg/8"
+        >
+          {
+            skills.map((s) => (
+              <div class="grid grid-cols-1 gap-3 bg-panel-2 px-7 py-7 sm:grid-cols-[190px_1fr] sm:items-baseline sm:gap-7">
+                <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">
+                  {s.label}
+                </div>
+                <div class="text-[15.5px] leading-[1.75] text-fg-soft">{s.body}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="work" class="mx-auto max-w-[1100px] px-6 pb-10 pt-24 sm:px-12 lg:pt-32">
+      <div class="reveal">
+        <div class="eyebrow mb-[18px]">the work · line by line</div>
+        <h2 class="display m-0 mb-16 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg">
+          thirteen years, kept honestly.
+        </h2>
+      </div>
+
+      {
+        experience.map((job) => (
+          <article class="reveal grid grid-cols-1 gap-6 border-b border-fg/10 pb-13 mb-13 sm:grid-cols-[200px_1fr] sm:gap-10">
+            <div>
+              <div class="mb-[10px] font-mono text-[11px] tracking-[0.16em] text-faint">
+                {job.period}
+              </div>
+              <div class="font-serif text-[26px] font-semibold italic leading-[1.12] text-fg">
+                {job.org}
+              </div>
+              {job.meta && <div class="mt-1 text-[12.5px] text-muted">{job.meta}</div>}
+              {job.role && <div class="mt-2 text-[14px] text-mauve">{job.role}</div>}
+            </div>
+            <div class="grid gap-[14px]">
+              {job.bullets.map((b) => (
+                <div class="bullet">
+                  <span class="dot">•</span>
+                  <span set:html={b} />
+                </div>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+
+      <!-- Earlier -->
+      <article class="reveal grid grid-cols-1 gap-6 sm:grid-cols-[200px_1fr] sm:gap-10">
+        <div>
+          <div class="mb-[10px] font-mono text-[11px] tracking-[0.16em] text-faint">
+            2012 — 2021
+          </div>
+          <div class="font-serif text-[26px] font-semibold italic leading-[1.12] text-fg">
+            Earlier
+          </div>
+        </div>
+        <div class="grid gap-[22px]">
+          {
+            earlier.map((e) => (
+              <div>
+                <div class="text-[15.5px] font-medium text-fg">
+                  {e.name} <span class="font-normal text-faint">— {e.meta}</span>
+                </div>
+                <div class="mt-1 text-[14.5px] leading-[1.6] text-muted">{e.body}</div>
+              </div>
+            ))
+          }
+        </div>
+      </article>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="mx-auto max-w-[1100px] px-6 pb-4 pt-8 sm:px-12 lg:pt-12">
+      <div class="reveal">
+        <div class="eyebrow mb-[18px]">selected projects</div>
+        <h2 class="display m-0 mb-14 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg">
+          things I keep shipping.
+        </h2>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {
+          projects.map((p, i) => (
+            <a
+              href={p.href}
+              target="_blank"
+              rel="noopener"
+              class="reveal group flex min-w-0 flex-col justify-between rounded-xl border border-fg/12 bg-panel/40 p-6 transition-colors hover:border-fg/25 hover:text-fg"
+              style={`--reveal-delay: ${i * 90}ms`}
+            >
+              <div>
+                <div class="flex items-baseline justify-between gap-3">
+                  <h3 class="font-serif text-[23px] font-medium italic leading-tight text-fg group-hover:text-mauve">
+                    {p.name}
+                  </h3>
+                  <span class="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
+                    {p.tag}
+                  </span>
+                </div>
+                <p class="mt-3 text-[15px] leading-[1.6] text-fg-soft">{p.description}</p>
+              </div>
+              <div class="mt-6 flex items-center justify-between gap-3 border-t border-fg/8 pt-4">
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted">
+                  {p.stack}
+                </span>
+                <span class="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-mauve">
+                  {p.linkLabel}
+                  <span class="transition-transform group-hover:translate-x-0.5" aria-hidden="true">↗</span>
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- EDUCATION + CONTACT -->
+    <section
+      id="contact"
+      class="mt-20 border-t border-fg/8 bg-panel px-6 py-20 sm:px-12 lg:py-28"
+    >
+      <div
+        class="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-14 md:grid-cols-2 md:gap-20"
+      >
+        <div class="reveal">
+          <div class="eyebrow mb-6 text-mauve">education</div>
+          <div class="grid gap-7">
+            {
+              education.map((ed) => (
+                <div>
+                  <div class="font-serif text-[26px] font-medium italic leading-[1.2] text-fg">
+                    {ed.title}
+                  </div>
+                  <div class="mt-[6px] text-[14.5px] text-muted">{ed.meta}</div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="eyebrow mb-6 text-mauve">get in touch</div>
+          <h2 class="display m-0 mb-7 text-[clamp(34px,6vw,52px)] leading-[1.02] text-fg">
+            let's build something<br /><span class="text-mauve">worth keeping.</span>
+          </h2>
+          <div class="grid max-w-[440px] gap-4">
+            <a
+              href={`mailto:${site.email}`}
+              class="grid grid-cols-[110px_1fr] items-baseline gap-4 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_1fr] sm:gap-5"
+            >
+              <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">email</span>
+              <span class="text-[15.5px] text-fg">{site.email}</span>
+            </a>
+            <a
+              href={site.github}
+              target="_blank"
+              rel="noopener"
+              class="grid grid-cols-[110px_1fr] items-baseline gap-4 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_1fr] sm:gap-5"
+            >
+              <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">github</span>
+              <span class="text-[15.5px] text-fg">{site.githubLabel}</span>
+            </a>
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener"
+              class="grid grid-cols-[110px_1fr] items-baseline gap-4 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_1fr] sm:gap-5"
+            >
+              <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">linkedin</span>
+              <span class="text-[15.5px] text-fg">{site.linkedinLabel}</span>
+            </a>
+            <div
+              class="grid grid-cols-[110px_1fr] items-baseline gap-4 border-b border-fg/10 pb-4 sm:grid-cols-[120px_1fr] sm:gap-5"
+            >
+              <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">based in</span>
+              <span class="text-[15.5px] text-fg">{site.location}</span>
+            </div>
+          </div>
+          <a href={site.resumePdf} download class="btn-solid mt-9">
+            download résumé
+            <span class="font-serif text-[16px] italic -translate-y-px">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-fg/8 bg-ink px-6 py-10 sm:px-12">
+      <div
+        class="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-4 font-mono text-[10.5px] uppercase tracking-[0.22em] text-faint"
+      >
+        <span>© {site.name.toLowerCase()} · {new Date().getFullYear()}</span>
+        <span class="flex gap-6">
+          <a href={`mailto:${site.email}`} class="text-inherit hover:text-fg">email</a>
+          <a href={site.github} target="_blank" rel="noopener" class="text-inherit hover:text-fg">github</a>
+          <a href={site.linkedin} target="_blank" rel="noopener" class="text-inherit hover:text-fg">linkedin</a>
+        </span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Reveal-on-scroll — staggered per element, no-op under reduced motion.
+    const els = document.querySelectorAll<HTMLElement>('.reveal');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach((el) => el.classList.add('is-visible'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              const delay = el.style.getPropertyValue('--reveal-delay') || '0ms';
+              el.style.transitionDelay = delay;
+              el.classList.add('is-visible');
+              io.unobserve(el);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+      );
+      els.forEach((el) => io.observe(el));
+    }
+
+    // Theme toggle — persists choice and keeps the browser chrome color in sync.
+    const themeColors: Record<string, string> = { dark: '#1a171e', light: '#f6f2ea' };
+    const meta = document.getElementById('theme-color-meta');
+    const syncMeta = (t: string) => meta?.setAttribute('content', themeColors[t] ?? themeColors.dark);
+    syncMeta(document.documentElement.dataset.theme ?? 'dark');
+
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = next;
+      try {
+        localStorage.setItem('theme', next);
+      } catch (e) {
+        /* private mode — ignore */
+      }
+      syncMeta(next);
+    });
+  </script>
+</Layout>
