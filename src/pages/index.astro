@@ -106,58 +106,19 @@ const nav = [
         </div>
       </div>
 
-      <!-- HERO VISUAL — live API snippet card -->
-      <aside
-        class="reveal min-w-0 font-mono"
-        style="--reveal-delay: 120ms"
-        aria-hidden="true"
-      >
-        <div
-          class="overflow-hidden rounded-xl border border-fg/12 bg-panel/70 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.7)] backdrop-blur-sm"
+      <!-- HERO VISUAL — portrait -->
+      <aside class="reveal min-w-0" style="--reveal-delay: 120ms">
+        <figure
+          class="group relative mx-auto max-w-[400px] overflow-hidden rounded-2xl border border-fg/12 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.65)]"
         >
-          <div
-            class="flex items-center gap-2 border-b border-fg/10 bg-panel-2/60 px-4 py-3"
-          >
-            <span class="h-[9px] w-[9px] rounded-full bg-mauve/70"></span>
-            <span class="h-[9px] w-[9px] rounded-full bg-fg/25"></span>
-            <span class="h-[9px] w-[9px] rounded-full bg-fg/15"></span>
-            <span class="ml-2 text-[10.5px] uppercase tracking-[0.2em] text-faint">
-              api · production
-            </span>
-          </div>
-          <div class="space-y-1 p-5 text-[12.5px] leading-[1.75]">
-            <div class="text-muted">
-              <span class="text-mauve">GET</span> /health
-            </div>
-            <div class="text-faint">{'{'}</div>
-            <div class="pl-4">
-              <span class="text-mauve">"status"</span><span class="text-faint">:</span>
-              <span class="text-ok">"ok"</span><span class="text-faint">,</span>
-            </div>
-            <div class="pl-4">
-              <span class="text-mauve">"service"</span><span class="text-faint">:</span>
-              <span class="text-fg-soft">"api"</span><span class="text-faint">,</span>
-            </div>
-            <div class="pl-4">
-              <span class="text-mauve">"db"</span><span class="text-faint">:</span>
-              <span class="text-fg-soft">"connected"</span><span class="text-faint">,</span>
-            </div>
-            <div class="pl-4">
-              <span class="text-mauve">"cache"</span><span class="text-faint">:</span>
-              <span class="text-fg-soft">"connected"</span>
-            </div>
-            <div class="text-faint">{'}'}</div>
-          </div>
-          <div
-            class="flex items-center justify-between border-t border-fg/10 px-5 py-3 text-[10.5px] uppercase tracking-[0.18em] text-faint"
-          >
-            <span>200 OK</span>
-            <span class="flex items-center gap-2">
-              <span class="h-[6px] w-[6px] rounded-full bg-ok"></span>
-              healthy
-            </span>
-          </div>
-        </div>
+          <img
+            src="/portrait.jpg"
+            alt="Cristian Dotta"
+            width="576"
+            height="576"
+            class="block w-full [filter:grayscale(0.2)_contrast(1.02)] transition-[filter] duration-500 group-hover:[filter:grayscale(0)]"
+          />
+        </figure>
       </aside>
     </section>
 
