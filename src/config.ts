@@ -53,7 +53,7 @@ export const skills = [
 // `bullets` may contain <em> markup to emphasise metrics in the accent ink color.
 export const experience = [
   {
-    period: 'Nov 2021 — Present',
+    period: 'Nov 2021 — Jul 2026',
     org: 'Exodus',
     meta: 'NYSE American: EXOD',
     role: 'Tech Lead, Exchange Team',
@@ -116,7 +116,7 @@ export const earlier = [
     body: 'Designed REST and GraphQL APIs in Node/TypeScript for clients including SunPower, Enphase, and Arthrex.',
   },
   {
-    name: 'Moove It',
+    name: 'Qubika (formerly Moove It)',
     meta: 'Technical Architect · 2015–2020',
     body: 'Set company-wide technical guidelines and quality standards; senior engineering for Disney, Hulu, and Catapult Health.',
   },
