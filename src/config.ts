@@ -4,7 +4,7 @@ export const site = {
   name: 'Cristian Dotta',
   handle: 'cristian dotta',
   role: 'Senior Backend Engineer',
-  kicker: 'senior backend engineer · high-scale apis & distributed systems',
+  kicker: 'thirteen years · typescript, node, distributed systems',
   email: 'cdotta90@gmail.com',
   github: 'https://github.com/cdotta',
   githubLabel: 'github.com/cdotta',
@@ -21,8 +21,8 @@ export const site = {
 
 // Headline rendered with the final clause in the accent color.
 export const hero = {
-  lines: ['apis that move', 'real money,'],
-  accentLine: "and don't lose it.",
+  lines: ['senior software', 'engineer,'],
+  accentLine: 'backend mostly.',
 };
 
 export const skills = [
