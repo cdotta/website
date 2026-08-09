@@ -16,15 +16,13 @@ export const site = {
   url: 'https://crisislabs.dev',
   resumePdf: '/Cristian-Dotta-Resume.pdf',
   description:
-    'Senior backend engineer with 13+ years building high-scale APIs and distributed systems in TypeScript and Node.js. Most recently Tech Lead at Exodus (NYSE: EXOD), owning a public API at 1.5M monthly active users and ~12M requests a day.',
+    'Senior backend engineer, 13+ years on high-scale APIs and distributed systems in TypeScript and Node.js. Most recently Tech Lead at Exodus (NYSE: EXOD), running a public API at 1.5M monthly active users and ~12M requests a day.',
 };
 
 // Headline rendered with the final clause in the accent color.
 export const hero = {
-  lines: ['systems that stay', 'out of the way,'],
-  accentLine: 'so people stay in control.',
-  blurb:
-    'Backend engineer with 13+ years building high-performance systems in TypeScript and Node.js. Most recently led exchange engineering at a publicly traded crypto company: a public API executing real-money trades across external providers, where reliability, idempotency, and data integrity are non-negotiable. Hands-on Solidity, and a daily practitioner of AI-augmented engineering.',
+  lines: ['apis that move', 'real money,'],
+  accentLine: "and don't lose it.",
 };
 
 export const skills = [
@@ -59,9 +57,9 @@ export const experience = [
     role: 'Tech Lead, Exchange Team',
     bullets: [
       "Led a 6-engineer team building the exchange behind Exodus' self-custodial wallet: swap aggregation, provider integrations, order routing, and pricing. The product line drives <em>~97% of company revenue</em>. Mentored the team and set technical direction.",
-      'Developed and operated the public XO Swap API (<em>~12M requests/day</em>), the trade execution service used by the wallet and 10+ external B2B partners. Event-driven processing over Kafka and BullMQ, where idempotency, retries, and data integrity are non-negotiable.',
+      'Developed and operated the public XO Swap API (<em>~12M requests/day</em>), the trade execution service used by the wallet and 10+ external B2B partners. Event-driven processing over Kafka and BullMQ, where a retry that is not idempotent costs somebody real money.',
       'Designed and executed zero-downtime, multi-phase data migrations (dual-write, backfill, then gradual cutover) across orders and provider assets, improving data integrity and eliminating fragile legacy mappings.',
-      'Owned monitoring, alerting, reporting, and incident response end to end. Built AI-assisted observability tooling integrating monitoring platforms with LLM agents for faster incident analysis.',
+      'Owned monitoring, alerting, reporting, and the on-call rotation. Built AI-assisted observability tooling that wires monitoring platforms into LLM agents, so incidents get diagnosed faster.',
       'Removed <em>~28k net lines of code</em> while consolidating fragmented services (e.g. PricingService), cutting maintenance cost and simplifying core architecture.',
       'Hardened geolocation enforcement (IP validation, forwarded-header edge cases) into a shared networking package, strengthening compliance posture across services.',
     ],
@@ -72,7 +70,7 @@ export const experience = [
     role: 'Side Project',
     bullets: [
       'Designed and operate a persistent agent runtime: Claude Code on a self-hosted Hetzner VPS (Docker, Traefik, Dokploy), driven through a Telegram bot, with custom agent skills scoped to distinct domains (work, journaling, nutrition tracking).',
-      'Built a Hono/TypeScript/SQLite backend with external API integrations and Git-backed storage pipelines. Transactional email (magic-link auth) runs on Resend. Full ownership from requirements and architecture to deployment, monitoring, and iteration.',
+      'Built a Hono/TypeScript/SQLite backend with external API integrations and Git-backed storage pipelines. Transactional email (magic-link auth) runs on Resend. All of it mine, from the first sketch to the deploys and whatever breaks after.',
     ],
   },
   {
@@ -82,7 +80,7 @@ export const experience = [
     bullets: [
       'Built a cross-chain NFT bridge with Hyperlane on Arbitrum. Led on-chain migrations and shipped Smolverse smart contracts on the Treasure framework.',
       'Built a fully on-chain game on upgradeable Solidity contracts, owning architecture from design and testing through deployment and upgrades. Integrated Chainlink VRF and Price Feeds into production contracts.',
-      'Designed a quest and campaign platform for ecosystem partners, securing admin operations with Ethereum signature verification. Technically led and leveled up the team.',
+      'Designed a quest and campaign platform for ecosystem partners, securing admin operations with Ethereum signature verification. Led it technically and got the rest of the team up to speed on Solidity.',
       'For Anonymice, primary developer: delivered “Evolutions” soul-bound tokens plus multiple smart contracts and dapps in Solidity, Node.js, and React.',
     ],
   },
