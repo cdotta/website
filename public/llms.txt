@@ -1,13 +1,13 @@
 # Cristian Dotta
 
-> Senior Backend Engineer with 13+ years building high-scale APIs and distributed systems in TypeScript and Node.js. Most recently Tech Lead of the Exchange team at Exodus (NYSE American: EXOD), owning a public API serving 1.5M monthly active users and ~12M requests/day. Hands-on Solidity (upgradeable smart contracts, cross-chain bridges, Chainlink) and a daily practitioner of AI-augmented engineering. Open to senior backend / distributed-systems roles, remote across the Americas.
+> Senior Backend Engineer with 13+ years building high-scale APIs and distributed systems in TypeScript, Node.js, and Ruby on Rails. Most recently Tech Lead of the Exchange team at Exodus (NYSE American: EXOD), owning a public API serving 1.5M monthly active users and ~12M requests/day. Hands-on Solidity (upgradeable smart contracts, cross-chain bridges, Chainlink) and a daily practitioner of AI-augmented engineering. Open to senior backend / distributed-systems roles, remote across the Americas.
 
 ## About
 
 - **Role:** Senior Backend Engineer — high-scale APIs & distributed systems
 - **Location:** Montevideo, Uruguay — remote (Americas time zones)
 - **Experience:** 13+ years
-- **Core stack:** TypeScript / Node.js, distributed systems, event-driven & async processing (Kafka, BullMQ), PostgreSQL, Redis, MongoDB, AWS (incl. Lambda), Kubernetes, Docker
+- **Core stack:** TypeScript / Node.js, Ruby on Rails, distributed systems, event-driven & async processing (Kafka, BullMQ), PostgreSQL, Redis, MongoDB, AWS (incl. Lambda), Kubernetes, Docker
 - **Differentiators:** production Solidity (upgradeable contracts, Hyperlane cross-chain bridges, Arbitrum, Chainlink); AI-augmented engineering (Claude Code, custom agent skills, MCP integrations, LLM APIs)
 
 ## Highlights

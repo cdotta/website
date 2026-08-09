@@ -4,7 +4,7 @@ export const site = {
   name: 'Cristian Dotta',
   handle: 'cristian dotta',
   role: 'Senior Backend Engineer',
-  kicker: 'thirteen years · typescript, node, distributed systems',
+  kicker: 'thirteen years · typescript, node, ruby, distributed systems',
   email: 'cdotta90@gmail.com',
   github: 'https://github.com/cdotta',
   githubLabel: 'github.com/cdotta',
@@ -16,7 +16,7 @@ export const site = {
   url: 'https://crisislabs.dev',
   resumePdf: '/Cristian-Dotta-Resume.pdf',
   description:
-    'Senior backend engineer, 13+ years on high-scale APIs and distributed systems in TypeScript and Node.js. Most recently Tech Lead at Exodus (NYSE: EXOD), running a public API at 1.5M monthly active users and ~12M requests a day.',
+    'Senior backend engineer, 13+ years on high-scale APIs and distributed systems in TypeScript, Node.js, and Ruby on Rails. Most recently Tech Lead at Exodus (NYSE: EXOD), running a public API at 1.5M monthly active users and ~12M requests a day.',
 };
 
 // Headline rendered with the final clause in the accent color.
@@ -28,7 +28,7 @@ export const hero = {
 export const skills = [
   {
     label: 'languages',
-    body: 'TypeScript / Node.js · JavaScript · Python · Ruby · SQL · React · Solidity',
+    body: 'TypeScript / Node.js · JavaScript · Ruby / Rails · Python · SQL · React · Solidity',
   },
   {
     label: 'backend',
