@@ -23,6 +23,7 @@
 - [Website](https://crisislabs.dev)
 - [Résumé (PDF)](https://crisislabs.dev/Cristian-Dotta-Resume.pdf)
 - [GitHub](https://github.com/cdotta)
+- [LinkedIn](https://www.linkedin.com/in/cristiandotta)
 - [Email](mailto:cdotta90@gmail.com)
 
 ## Projects
