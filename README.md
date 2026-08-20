@@ -45,7 +45,6 @@ via `--print-to-pdf`.
 ## Before going live
 
 1. Set your real domain in `astro.config.mjs` (`site`) and `src/config.ts` (`url`).
-2. Confirm the LinkedIn URL in `src/config.ts` (currently a best-guess placeholder).
 
 ## Deploy to Fly
 

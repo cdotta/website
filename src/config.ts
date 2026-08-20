@@ -8,9 +8,8 @@ export const site = {
   email: 'cdotta90@gmail.com',
   github: 'https://github.com/cdotta',
   githubLabel: 'github.com/cdotta',
-  // TODO: replace with your real LinkedIn URL (or remove if you don't use it).
-  linkedin: 'https://www.linkedin.com/in/cdotta',
-  linkedinLabel: 'linkedin.com/in/cdotta',
+  linkedin: 'https://www.linkedin.com/in/cristiandotta',
+  linkedinLabel: 'linkedin.com/in/cristiandotta',
   location: 'Montevideo, Uruguay — remote, Americas',
   // Real domain (also set as `site` in astro.config.mjs).
   url: 'https://crisislabs.dev',
