@@ -150,6 +150,45 @@
     color: var(--color-fg);
     border-color: color-mix(in oklab, var(--color-fg) 40%, transparent);
   }
+  /* Retro-mode link: a slow pulse ring says "try me", wiggle on hover. */
+  .retro-link {
+    color: var(--color-mauve);
+    border-color: color-mix(in oklab, var(--color-mauve) 50%, transparent);
+    animation: retro-pulse 2.8s ease-out infinite;
+  }
+  .retro-link:hover {
+    color: var(--color-ink);
+    background: var(--color-mauve);
+    border-color: var(--color-mauve);
+    animation: none;
+  }
+  .retro-link:hover svg {
+    animation: retro-wiggle 0.5s ease-in-out;
+  }
+  @keyframes retro-pulse {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-mauve) 55%, transparent);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 10px transparent;
+    }
+  }
+  @keyframes retro-wiggle {
+    25% {
+      transform: rotate(-14deg) scale(1.12);
+    }
+    75% {
+      transform: rotate(12deg) scale(1.12);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .retro-link,
+    .retro-link:hover svg {
+      animation: none;
+    }
+  }
+
   .theme-toggle .moon {
     display: none;
   }
