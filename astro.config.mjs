@@ -14,7 +14,8 @@ export default defineConfig({
     mode: 'standalone'
   }),
 
-  integrations: [sitemap()],
+  // /retro is a hidden experiment; keep it out of the sitemap.
+  integrations: [sitemap({ filter: (page) => !page.includes('/retro') })],
 
   vite: {
     plugins: [tailwindcss()]

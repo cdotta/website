@@ -27,6 +27,8 @@ metrics, skills, experience, and education. Edit there; the page in
 - Layout / `<head>` / OG + Twitter meta: `src/layouts/Layout.astro`
 - Colors, fonts, component classes, reveal-on-scroll: `src/styles/cv.css`
 - Favicon: `public/favicon.svg` · Social share image: `public/og.png`
+- `/retro` — hidden, `noindex` experiment: the same content as a keyboard-driven
+  old-game menu (`src/pages/retro.astro`). Not linked from anywhere yet.
 
 ## The downloadable résumé (PDF)
 

@@ -5,9 +5,10 @@ import { site } from '../config';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
-const { title = `${site.name} · ${site.role}`, description = site.description } = Astro.props;
+const { title = `${site.name} · ${site.role}`, description = site.description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
 const ogImage = new URL('/og.png', Astro.site ?? site.url).href;
 ---
@@ -35,6 +36,7 @@ const ogImage = new URL('/og.png', Astro.site ?? site.url).href;
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
