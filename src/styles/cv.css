@@ -131,6 +131,23 @@
     transform: translateY(-2px);
   }
 
+  /* Small nav controls read at their drawn size but stay tappable: an
+     invisible child pads every hit box out to the 44px touch minimum. */
+  .tap-target,
+  .nav-icon {
+    position: relative;
+  }
+  .tap-target::after,
+  .nav-icon::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+    transform: translate(-50%, -50%);
+  }
+
   /* Round nav icon buttons: theme toggle, retro mode. */
   .nav-icon {
     display: inline-flex;

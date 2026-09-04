@@ -16,7 +16,7 @@ const nav = [
     <nav
       class="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-7 sm:px-12"
     >
-      <a href="#top" class="inline-flex items-center gap-[9px]">
+      <a href="#top" class="tap-target inline-flex items-center gap-[9px]">
         <span class="relative inline-block h-[22px] w-[22px]">
           <span
             class="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-fg opacity-55"></span>
@@ -41,7 +41,7 @@ const nav = [
         <a
           href={site.resumePdf}
           download
-          class="border-b border-fg pb-px font-serif text-[16px] font-medium italic normal-case tracking-[-0.005em] text-fg hover:text-fg"
+          class="tap-target border-b border-fg pb-px font-serif text-[16px] font-medium italic normal-case tracking-[-0.005em] text-fg hover:text-fg"
         >
           résumé ↓
         </a>
@@ -67,7 +67,7 @@ const nav = [
     <!-- HERO -->
     <section
       id="top"
-      class="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 pb-16 pt-10 sm:px-12 lg:grid-cols-[1.15fr_0.85fr] lg:pb-20 lg:pt-14"
+      class="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-10 px-6 pb-12 pt-6 sm:gap-14 sm:px-12 sm:pb-16 sm:pt-10 lg:grid-cols-[1.15fr_0.85fr] lg:pb-20 lg:pt-14"
     >
       <div class="reveal min-w-0">
         <div class="eyebrow mb-6">{site.kicker}</div>
@@ -132,12 +132,12 @@ const nav = [
     <!-- SKILLS / TOOLKIT -->
     <section
       id="skills"
-      class="border-y border-fg/8 bg-panel px-6 py-20 sm:px-12 lg:py-28"
+      class="border-y border-fg/8 bg-panel px-6 py-14 sm:px-12 sm:py-20 lg:py-28"
     >
       <div class="mx-auto max-w-[1100px]">
         <div class="reveal">
           <div class="eyebrow mb-[18px]">the toolkit</div>
-          <h2 class="display m-0 mb-14 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg">
+          <h2 class="display m-0 mb-10 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg sm:mb-14">
             what I actually use.
           </h2>
         </div>
@@ -147,7 +147,7 @@ const nav = [
         >
           {
             skills.map((s) => (
-              <div class="grid grid-cols-1 gap-3 bg-panel-2 px-7 py-7 sm:grid-cols-[190px_1fr] sm:items-baseline sm:gap-7">
+              <div class="grid grid-cols-1 gap-2.5 bg-panel-2 px-5 py-6 sm:grid-cols-[190px_minmax(0,1fr)] sm:items-baseline sm:gap-7 sm:px-7 sm:py-7">
                 <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">
                   {s.label}
                 </div>
@@ -160,17 +160,17 @@ const nav = [
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="work" class="mx-auto max-w-[1100px] px-6 pb-10 pt-24 sm:px-12 lg:pt-32">
+    <section id="work" class="mx-auto max-w-[1100px] px-6 pb-10 pt-16 sm:px-12 sm:pt-24 lg:pt-32">
       <div class="reveal">
         <div class="eyebrow mb-[18px]">experience</div>
-        <h2 class="display m-0 mb-16 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg">
+        <h2 class="display m-0 mb-10 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg sm:mb-16">
           where the thirteen years went.
         </h2>
       </div>
 
       {
         experience.map((job) => (
-          <article class="reveal grid grid-cols-1 gap-6 border-b border-fg/10 pb-13 mb-13 sm:grid-cols-[200px_1fr] sm:gap-10">
+          <article class="reveal mb-10 grid grid-cols-1 gap-5 border-b border-fg/10 pb-10 sm:mb-13 sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-10 sm:pb-13">
             <div>
               <div class="mb-[10px] font-mono text-[11px] tracking-[0.16em] text-faint">
                 {job.period}
@@ -194,7 +194,7 @@ const nav = [
       }
 
       <!-- Earlier -->
-      <article class="reveal grid grid-cols-1 gap-6 sm:grid-cols-[200px_1fr] sm:gap-10">
+      <article class="reveal grid grid-cols-1 gap-5 sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-10">
         <div>
           <div class="mb-[10px] font-mono text-[11px] tracking-[0.16em] text-faint">
             2012 — 2021
@@ -222,12 +222,12 @@ const nav = [
     <section id="projects" class="mx-auto max-w-[1100px] px-6 pb-4 pt-8 sm:px-12 lg:pt-12">
       <div class="reveal">
         <div class="eyebrow mb-[18px]">selected projects</div>
-        <h2 class="display m-0 mb-14 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg">
+        <h2 class="display m-0 mb-10 max-w-[720px] text-[clamp(34px,6vw,52px)] leading-[1.08] text-fg sm:mb-14">
           things I built on my own time.
         </h2>
       </div>
 
-      <div class="grid gap-5 sm:grid-cols-2">
+      <div class="grid gap-5 md:grid-cols-2">
         {
           projects.map((p, i) => (
             <a
@@ -238,7 +238,7 @@ const nav = [
               style={`--reveal-delay: ${i * 90}ms`}
             >
               <div>
-                <div class="flex items-baseline justify-between gap-3">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                   <h3 class="font-serif text-[23px] font-medium italic leading-tight text-fg group-hover:text-mauve">
                     {p.name}
                   </h3>
@@ -248,7 +248,7 @@ const nav = [
                 </div>
                 <p class="mt-3 text-[15px] leading-[1.6] text-fg-soft">{p.description}</p>
               </div>
-              <div class="mt-6 flex items-center justify-between gap-3 border-t border-fg/8 pt-4">
+              <div class="mt-6 flex flex-col items-start gap-2.5 border-t border-fg/8 pt-4 lg:flex-row lg:items-center lg:justify-between lg:gap-3">
                 <span class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted">
                   {p.stack}
                 </span>
@@ -266,10 +266,10 @@ const nav = [
     <!-- EDUCATION + CONTACT -->
     <section
       id="contact"
-      class="mt-20 border-t border-fg/8 bg-panel px-6 py-20 sm:px-12 lg:py-28"
+      class="mt-14 border-t border-fg/8 bg-panel px-6 py-14 sm:mt-20 sm:px-12 sm:py-20 lg:py-28"
     >
       <div
-        class="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-14 md:grid-cols-2 md:gap-20"
+        class="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-12 sm:gap-14 md:grid-cols-2 md:gap-20"
       >
         <div class="reveal">
           <div class="eyebrow mb-6 text-mauve">education</div>
@@ -295,34 +295,34 @@ const nav = [
           <div class="grid max-w-[440px] gap-4">
             <a
               href={`mailto:${site.email}`}
-              class="grid grid-cols-[110px_1fr] items-baseline gap-4 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_1fr] sm:gap-5"
+              class="grid grid-cols-1 gap-1 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_minmax(0,1fr)] sm:items-baseline sm:gap-5"
             >
               <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">email</span>
-              <span class="text-[15.5px] text-fg">{site.email}</span>
+              <span class="text-[15.5px] break-words text-fg">{site.email}</span>
             </a>
             <a
               href={site.github}
               target="_blank"
               rel="noopener"
-              class="grid grid-cols-[110px_1fr] items-baseline gap-4 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_1fr] sm:gap-5"
+              class="grid grid-cols-1 gap-1 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_minmax(0,1fr)] sm:items-baseline sm:gap-5"
             >
               <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">github</span>
-              <span class="text-[15.5px] text-fg">{site.githubLabel}</span>
+              <span class="text-[15.5px] break-words text-fg">{site.githubLabel}</span>
             </a>
             <a
               href={site.linkedin}
               target="_blank"
               rel="noopener"
-              class="grid grid-cols-[110px_1fr] items-baseline gap-4 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_1fr] sm:gap-5"
+              class="grid grid-cols-1 gap-1 border-b border-fg/10 pb-4 text-fg hover:text-fg sm:grid-cols-[120px_minmax(0,1fr)] sm:items-baseline sm:gap-5"
             >
               <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">linkedin</span>
-              <span class="text-[15.5px] text-fg">{site.linkedinLabel}</span>
+              <span class="text-[15.5px] break-words text-fg">{site.linkedinLabel}</span>
             </a>
             <div
-              class="grid grid-cols-[110px_1fr] items-baseline gap-4 border-b border-fg/10 pb-4 sm:grid-cols-[120px_1fr] sm:gap-5"
+              class="grid grid-cols-1 gap-1 border-b border-fg/10 pb-4 sm:grid-cols-[120px_minmax(0,1fr)] sm:items-baseline sm:gap-5"
             >
               <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">based in</span>
-              <span class="text-[15.5px] text-fg">{site.location}</span>
+              <span class="text-[15.5px] break-words text-fg">{site.location}</span>
             </div>
           </div>
           <a href={site.resumePdf} download class="btn-solid mt-9">
