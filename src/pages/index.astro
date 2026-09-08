@@ -120,7 +120,7 @@ const nav = [
         >
           <img
             src="/portrait.jpg"
-            alt="Cristian Dotta"
+            alt={site.name}
             width="576"
             height="576"
             class="block w-full [filter:grayscale(0.2)_contrast(1.02)] transition-[filter] duration-500 group-hover:[filter:grayscale(0)]"
@@ -151,7 +151,7 @@ const nav = [
                 <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-mauve">
                   {s.label}
                 </div>
-                <div class="text-[15.5px] leading-[1.75] text-fg-soft">{s.body}</div>
+                <div class="text-[15.5px] leading-[1.75] text-fg-soft">{s.items.join(' · ')}</div>
               </div>
             ))
           }
@@ -208,7 +208,7 @@ const nav = [
             earlier.map((e) => (
               <div>
                 <div class="text-[15.5px] font-medium text-fg">
-                  {e.name} <span class="font-normal text-faint">— {e.meta}</span>
+                  {e.name} <span class="font-normal text-faint">— {e.role} · {e.years}</span>
                 </div>
                 <div class="mt-1 text-[14.5px] leading-[1.6] text-muted">{e.body}</div>
               </div>
@@ -280,7 +280,7 @@ const nav = [
                   <div class="font-serif text-[26px] font-medium italic leading-[1.2] text-fg">
                     {ed.title}
                   </div>
-                  <div class="mt-[6px] text-[14.5px] text-muted">{ed.meta}</div>
+                  <div class="mt-[6px] text-[14.5px] text-muted">{ed.org} · {ed.year}</div>
                 </div>
               ))
             }

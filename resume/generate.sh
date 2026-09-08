@@ -11,7 +11,10 @@ set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC="$HERE/resume-print.html"
-OUT="$HERE/../public/Cristian-Dotta-Resume.pdf"
+# Output path comes from `site.resumePdf` so it follows the name in content/.
+PDF_PATH="$(node --input-type=module -e \
+  "import { site } from '$HERE/../content/site.ts'; process.stdout.write(site.resumePdf)")"
+OUT="$HERE/../public${PDF_PATH}"
 
 # Find a Chromium-based browser that supports --print-to-pdf.
 CANDIDATES=(

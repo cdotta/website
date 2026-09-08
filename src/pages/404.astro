@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config';
 ---
 
-<Layout title="Not found · Cristian Dotta">
+<Layout title={`Not found · ${site.name}`}>
   <main class="mx-auto flex min-h-dvh max-w-[1180px] flex-col items-center justify-center px-6 text-center">
     <div class="eyebrow mb-6">error · 404</div>
     <h1 class="display text-[clamp(48px,10vw,88px)] leading-none text-fg">

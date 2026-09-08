@@ -1,64 +1,75 @@
-# cristiandotta.com
+# Personal site + résumé
 
-Personal site / CV for Cristian Dotta — a single-page portfolio built from the
-"Website with resume styling" Claude Design project.
-
-Built with [Astro](https://astro.build) + Tailwind CSS 4, self-hosted fonts
-(Geist, Geist Mono, Cormorant Garamond via Fontsource), and deployed to
-[Fly.io](https://fly.io).
+A single-page portfolio and a matching print-ready résumé PDF, both generated
+from one file you fill in. Built with [Astro](https://astro.build) and Tailwind
+CSS 4, self-hosted fonts (Geist, Geist Mono, Cormorant Garamond via Fontsource),
+deployed to [Fly.io](https://fly.io).
 
 Requires Node 22+ (`.nvmrc` pins 24 — run `nvm use`).
 
-## Develop
+## Make it yours
 
 ```sh
+cp -r content.example content   # your details; gitignored, never committed
 npm install
-npm run dev       # http://localhost:4321
-npm run build     # production build into dist/
-npm run preview   # serve the production build locally
+npm run dev                     # http://localhost:4321
 ```
 
-## Editing content
+Edit **`content/site.ts`** — name, role, contact links, skills, experience,
+projects, education, plus the résumé and llms.txt copy. It is the only file with
+personal data in it. Replace the three placeholder images beside it:
 
-Everything personal lives in **`src/config.ts`** — name, role, contact links,
-metrics, skills, experience, and education. Edit there; the page in
-`src/pages/index.astro` maps over it.
+| File | Used for |
+|---|---|
+| `content/portrait.jpg` | homepage hero (copied to `public/portrait.jpg`) |
+| `content/headshot.jpg` | résumé header (copied to `resume/headshot.jpg`) |
+| `content/og.png` | social share card (copied to `public/og.png`) |
 
-- Layout / `<head>` / OG + Twitter meta: `src/layouts/Layout.astro`
-- Colors, fonts, component classes, reveal-on-scroll: `src/styles/cv.css`
-- Favicon: `public/favicon.svg` · Social share image: `public/og.png`
-- `/retro` — hidden, `noindex` experiment: the same content as a keyboard-driven
-  old-game menu (`src/pages/retro.astro`). Not linked from anywhere yet.
+Everything else is generated from `content/site.ts` by
+`scripts/build-content.mjs`, which runs automatically before `dev` and `build`:
+
+- `public/llms.txt` — the summary crawling agents read
+- `resume/resume-print.html` — print source for the PDF
+
+Don't edit those two by hand; they get overwritten. Layout and styling live in
+`src/layouts/Layout.astro`, `src/styles/cv.css`, and `resume/resume.css`.
+
+`/retro` is a hidden, `noindex` experiment — the same content as a
+keyboard-driven old-game menu (`src/pages/retro.astro`). Not linked from
+anywhere.
 
 ## The downloadable résumé (PDF)
 
-The "download résumé" buttons link to `public/Cristian-Dotta-Resume.pdf` — a
-real, print-optimized 2-page PDF (not a print dialog).
-
-To update it: edit `resume/resume-print.html`, then regenerate:
+The "download résumé" buttons link to a real, print-optimized 2-page PDF, not a
+print dialog. After changing `content/site.ts`:
 
 ```sh
-./resume/generate.sh    # renders the HTML to public/Cristian-Dotta-Resume.pdf
+npm run resume    # regenerates resume-print.html, then the PDF
 ```
 
-The script uses a headless Chromium browser (Chrome / Brave / Edge / Chromium)
-via `--print-to-pdf`.
+It renders with a headless Chromium browser (Chrome / Brave / Edge / Chromium)
+via `--print-to-pdf`, and writes to the path set in `site.resumePdf`.
 
-## Before going live
-
-1. Set your real domain in `astro.config.mjs` (`site`) and `src/config.ts` (`url`).
+**Check the page count after any wording change.** The layout is tuned to land
+on exactly two pages; a longer bullet can spill it to three.
 
 ## Deploy to Fly
 
-First time (needs [flyctl](https://fly.io/docs/flyctl/install/)):
+Deploys run from your machine, so the gitignored `content/` is in the build
+context. There is no CI workflow — that is deliberate: CI builds from the git
+checkout, which by design does not have your content in it.
 
 ```sh
-fly launch --no-deploy   # pick a unique app name; keep the existing fly.toml + Dockerfile
-fly deploy
+cp fly.example.toml fly.toml   # then set a unique app name
+fly launch --no-deploy         # keep the existing fly.toml + Dockerfile
+npm run deploy
 ```
 
-After that, `fly deploy` is all you need. For a custom domain:
+After that, `npm run deploy` is all you need. For a custom domain:
 
 ```sh
-fly certs add cristiandotta.com
+fly certs add your-domain.com
 ```
+
+Set that same domain as `site.url` in `content/site.ts` — `astro.config.mjs`
+reads it from there for sitemap, canonical, and OG URLs.

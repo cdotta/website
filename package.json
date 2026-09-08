@@ -7,8 +7,12 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "predev": "node scripts/build-content.mjs",
     "build": "astro build",
+    "prebuild": "node scripts/build-content.mjs",
     "preview": "astro preview",
+    "resume": "node scripts/build-content.mjs && ./resume/generate.sh",
+    "deploy": "fly deploy",
     "astro": "astro"
   },
   "dependencies": {

@@ -14,12 +14,12 @@ const level = new Date().getFullYear() - 2013;
 
     <!-- TITLE -->
     <section class="screen title active" id="title">
-      <div class="logo">CRISTIAN<br />DOTTA</div>
+      <div class="logo">{site.name.split(' ')[0]}<br />{site.name.split(' ').slice(1).join(' ')}</div>
       <div class="tagline">SENIOR BACKEND ENGINEER</div>
       <ul class="menu start">
         <li data-go="main">PRESS START</li>
       </ul>
-      <div class="copyright">© 2013 – {new Date().getFullYear()} CRISISLABS</div>
+      <div class="copyright">© {site.since} – {new Date().getFullYear()} {site.brand}</div>
     </section>
 
     <!-- MAIN MENU -->
@@ -54,7 +54,7 @@ const level = new Date().getFullYear() - 2013;
         <p class="body">{site.description}</p>
         <div class="sub-title">EDUCATION</div>
         <ul class="plain">
-          {education.map((ed) => (<li>{ed.title} <span class="dim">— {ed.meta}</span></li>))}
+          {education.map((ed) => (<li>{ed.title} <span class="dim">— {ed.org} · {ed.year}</span></li>))}
         </ul>
         <ul class="menu">
           <li data-back>BACK</li>
@@ -113,7 +113,7 @@ const level = new Date().getFullYear() - 2013;
           {
             earlier.map((e) => (
               <li>
-                <strong>{e.name}</strong> <span class="dim">— {e.meta}</span>
+                <strong>{e.name}</strong> <span class="dim">— {e.role} · {e.years}</span>
                 <br />{e.body}
               </li>
             ))
@@ -130,7 +130,7 @@ const level = new Date().getFullYear() - 2013;
       <div class="box">
         <div class="box-title">TOOLKIT</div>
         <dl class="stats wide">
-          {skills.map((s) => (<><dt>{s.label}</dt><dd>{s.body}</dd></>))}
+          {skills.map((s) => (<><dt>{s.label}</dt><dd>{s.items.join(' · ')}</dd></>))}
         </dl>
         <ul class="menu">
           <li data-back>BACK</li>

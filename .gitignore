@@ -22,3 +22,19 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# personal content — copy content.example/ to content/ and edit that
+content/
+
+# personal assets, served from where they are ignored
+public/portrait.jpg
+public/og.png
+public/*.pdf
+resume/headshot.jpg
+
+# generated from content/site.ts by scripts/build-content.mjs
+public/llms.txt
+resume/resume-print.html
+
+# deploy config — carries your Fly app name
+fly.toml

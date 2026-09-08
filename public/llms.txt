@@ -1,11 +1,11 @@
 # Cristian Dotta
 
-> Senior Backend Engineer with 13+ years building high-scale APIs and distributed systems in TypeScript, Node.js, and Ruby on Rails. Most recently Tech Lead of the Exchange team at Exodus (NYSE American: EXOD), owning a public API serving 1.5M monthly active users and ~12M requests/day. Hands-on Solidity (upgradeable smart contracts, cross-chain bridges, Chainlink) and a daily practitioner of AI-augmented engineering. Open to senior backend / distributed-systems roles, remote across the Americas.
+> Senior Backend Engineer with 13+ years building high-scale APIs and distributed systems in TypeScript, Node.js, and Ruby on Rails. Most recently Tech Lead of the Exchange team at Exodus (NYSE American: EXOD), owning a public API that served 1.5M monthly active users and ~12M requests/day. Hands-on Solidity (upgradeable smart contracts, cross-chain bridges, Chainlink), and builds and runs his own agent tooling every day. Open to senior backend / distributed-systems roles, remote across the Americas.
 
 ## About
 
 - **Role:** Senior Backend Engineer — high-scale APIs & distributed systems
-- **Location:** Montevideo, Uruguay — remote (Americas time zones)
+- **Location:** Montevideo, Uruguay — remote, Americas
 - **Experience:** 13+ years
 - **Core stack:** TypeScript / Node.js, Ruby on Rails, distributed systems, event-driven & async processing (Kafka, BullMQ), PostgreSQL, Redis, MongoDB, AWS (incl. Lambda), Kubernetes, Docker
 - **Differentiators:** production Solidity (upgradeable contracts, Hyperlane cross-chain bridges, Arbitrum, Chainlink); AI-augmented engineering (Claude Code, custom agent skills, MCP integrations, LLM APIs)
@@ -13,8 +13,8 @@
 ## Highlights
 
 - Tech Lead of the Exchange team at Exodus (NYSE American: EXOD), Nov 2021 – Jul 2026 — the product line driving ~97% of company revenue.
-- Developed and operated the public XO Swap API: ~12M requests/day, 1.5M monthly active users, 10+ external B2B partners; event-driven over Kafka and BullMQ where idempotency, retries, and data integrity are non-negotiable.
-- Designed and executed zero-downtime, multi-phase data migrations; removed ~28k net lines of code while consolidating fragmented services.
+- Developed and operated the public XO Swap API: ~12M requests/day, 1.5M monthly active users, 10+ external B2B partners; event-driven over Kafka and BullMQ, where a retry that is not idempotent costs somebody real money.
+- Designed and executed zero-downtime, multi-phase data migrations; consolidated fragmented services and took out ~28k net lines of code.
 - Built AI-assisted observability tooling integrating monitoring platforms with LLM agents for faster incident analysis.
 - Earlier: production Solidity across Treasure DAO and Anonymice (cross-chain NFT bridge, on-chain game, Chainlink VRF/Price Feeds, soul-bound tokens).
 
@@ -28,8 +28,8 @@
 
 ## Projects
 
-- [remote-mcp-starter](https://github.com/cdotta/remote-mcp-starter) — open-source, production-grade template for remote MCP servers (Hono, Better Auth personal access tokens, stateless Streamable HTTP, tenant isolation, full integration tests).
-- [Journal](https://journal.crisislabs.dev/welcome) — a digital Bullet Journal: fast daily and monthly logging, habit tracking, and LLM-assisted paste-and-parse capture (React Router, Prisma, Capacitor).
+- [remote-mcp-starter](https://github.com/cdotta/remote-mcp-starter) — A production-grade template for remote MCP servers — Hono, Better Auth (personal access tokens), stateless Streamable HTTP, tenant isolation, and full integration tests.
+- [Journal](https://journal.crisislabs.dev/welcome) — A digital Bullet Journal: fast daily and monthly logging, habit tracking, and LLM-assisted paste-and-parse capture. Web and mobile, self-hosted.
 
 ## Contact
 

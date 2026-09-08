@@ -1,0 +1,9 @@
+  @page { size: letter; margin: 0.65in; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Geist', system-ui, sans-serif; color: #3a3442; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .rz-bullet { display:flex; gap:9px; font-size:10pt; line-height:1.46; color:#3a3442; break-inside:avoid; }
+  .rz-bullet > span:first-child { color:#7B6A92; flex-shrink:0; }
+  h2, .rz-role { break-after: avoid; }
+  h2 { font-family:'Geist Mono',ui-monospace,monospace; font-size:9pt; letter-spacing:0.22em; text-transform:uppercase; color:#7B6A92; margin:0 0 11px; padding-bottom:6px; border-bottom:1px solid rgba(49,43,58,0.18); }
+  .rz-entry { margin-bottom:16px; break-inside:avoid; }
