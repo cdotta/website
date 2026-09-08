@@ -16,6 +16,8 @@ export const site = {
   githubLabel: 'github.com/your-handle',
   linkedin: 'https://www.linkedin.com/in/your-handle',
   linkedinLabel: 'linkedin.com/in/your-handle',
+  availability:
+    'Open to senior backend roles, remote across Europe.',
   // /retro footer only.
   brand: 'YOURBRAND',
   since: '2016',
@@ -31,7 +33,12 @@ export const site = {
 export const hero = {
   lines: ['senior software'],
   accentLine: 'engineer.',
-  experienceHeading: 'where the nine years went.',
+  experienceHeading: 'where the work went.',
+  stats: [
+    { value: '40k', label: 'transactions / day' },
+    { value: '4', label: 'engineers led' },
+    { value: '<5', label: 'manual corrections / month' },
+  ],
   // Rendered as HTML. <span class="text-fg"> lifts a phrase to the brighter ink.
   intro:
     "Backend engineer, nine years in, mostly Go and PostgreSQL. Most recently I ran the ledger at a payments company, where <span class=\"text-fg\">a double-counted event is somebody being paid twice</span>, so idempotency stopped being theory. Write your own version of this paragraph \u2014 two or three sentences, one of them concrete enough to argue with.",
@@ -66,6 +73,7 @@ export const experience = [
   {
     period: 'Mar 2021 — Present',
     org: 'Kestrel Payments',
+    visibleBullets: 2,
     meta: 'Series B',
     role: 'Staff Engineer, Ledger',
     bullets: [
@@ -84,6 +92,32 @@ export const experience = [
     ],
   },
 ];
+
+export const caseStudies = [
+  {
+    eyebrow: 'Kestrel · reconciliation',
+    title: 'Settlement that reconciles itself.',
+    lead: 'Every payout run ended in a spreadsheet somebody corrected by hand.',
+    processLabel: 'Rebuild sequence',
+    process: ['Event log', 'Idempotent consumer', 'Cutover'],
+    close: ['Monthly manual corrections went from 90 to under 5.'],
+  },
+  {
+    eyebrow: 'Kestrel · migration',
+    title: 'Postgres 12 to 16, nothing down.',
+    lead: 'Four services shared one database and none of them could stop.',
+    process: null,
+    close: ['Logical replication, dual-read, then a service-by-service cutover.'],
+  },
+];
+
+export const about = {
+  heading: 'From the interface to production.',
+  paragraphs: [
+    'Two or three sentences on how you work. Keep one of them concrete enough to argue with.',
+    'What you build outside the job, if anything. Name the actual things.',
+  ],
+};
 
 export const projects = [
   {
@@ -150,5 +184,4 @@ export const llms = {
     'Rebuilt settlement reconciliation as an idempotent event consumer; monthly manual corrections went from 90 to under 5.',
     'Ran a zero-downtime Postgres 12 to 16 migration across four services.',
   ],
-  contact: 'Open to senior backend roles, remote across Europe.',
 };

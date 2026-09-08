@@ -20,7 +20,7 @@
   --color-mauve: #b8a8cc; /* accent */
   --color-mauve-hi: #d5ccdd; /* accent hover */
   --color-muted: #9a93a3; /* secondary text */
-  --color-faint: #6a6370; /* eyebrows / de-emphasis */
+  --color-faint: #a59cab; /* eyebrows / de-emphasis */
   --color-ok: #8fbf9f; /* health / success accent */
 
   --font-sans: 'Geist Variable', system-ui, sans-serif;
@@ -44,7 +44,7 @@
   --color-mauve: #6d4d97; /* accent — deepened for contrast on light */
   --color-mauve-hi: #5a3d82; /* accent hover */
   --color-muted: #6a6274; /* secondary text */
-  --color-faint: #9b90a4; /* eyebrows / de-emphasis */
+  --color-faint: #716579; /* eyebrows / de-emphasis */
   --color-ok: #3f8a5a; /* health / success accent */
 }
 
@@ -78,7 +78,7 @@
   /* Uppercase mono eyebrow used throughout. */
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 10.5px;
+    font-size: 12px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--color-faint);
@@ -219,7 +219,7 @@
 
 /* Reveal-on-scroll — respects reduced-motion. */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal {
+  .reveal.reveal-ready {
     opacity: 0;
     transform: translateY(18px);
     transition:
@@ -231,3 +231,31 @@
     transform: none;
   }
 }
+
+/* Portfolio refresh: keep the original palette and editorial typography. */
+section { scroll-margin-top: 24px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--color-mauve); outline-offset: 5px; }
+.skip-link { position: absolute; top: -100px; left: 24px; z-index: 20; background: var(--color-fg); color: var(--color-ink); padding: 12px 20px; }
+.skip-link:focus { top: 12px; }
+.mobile-nav { padding: 0 24px 18px; gap: 20px; overflow-x: auto; white-space: nowrap; }
+@media (max-width: 639px) { .mobile-nav { display: flex; } }
+.mobile-nav a { font-size: 14px; padding: 10px 0; color: var(--color-fg-soft); }
+.proof-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; border-block: 1px solid color-mix(in oklab, var(--color-fg) 14%, transparent); padding: 20px 0; margin-top: 24px; }
+.proof-points dt { font-size: 28px; color: var(--color-fg); font-family: var(--font-serif); }
+.proof-points dd { font-size: 12px; color: var(--color-muted); line-height: 1.5; }
+.work-details { font-size: 16px; line-height: 1.65; color: var(--color-fg-soft); }
+.work-details summary { cursor: pointer; color: var(--color-mauve); padding: 10px 0; }
+.work-details em { font-style: normal; color: var(--color-fg); }
+.case-studies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 0 0 56px; }
+.case-study { border-top: 1px solid color-mix(in oklab, var(--color-fg) 18%, transparent); padding-top: 24px; }
+.case-study h3 { font: italic 500 28px/1.15 var(--font-serif); margin: 16px 0; }
+.case-study p { font-size: 16px; line-height: 1.65; color: var(--color-fg-soft); margin-top: 16px; }
+.process { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 20px 0; font-size: 13px; color: var(--color-mauve); }
+.project-preview { background: var(--color-panel-2); border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent); border-radius: 8px; padding: 22px; margin-bottom: 24px; }
+.project-preview > span { font: italic 24px var(--font-serif); color: var(--color-fg); }
+.preview-steps { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.preview-steps span { border: 1px solid color-mix(in oklab, var(--color-fg) 16%, transparent); padding: 5px 9px; border-radius: 4px; font-size: 12px; color: var(--color-fg-soft); }
+.project-preview p { font-size: 13px; color: var(--color-muted); }
+.agent-project { padding: 18px 24px; border: 1px solid color-mix(in oklab, var(--color-fg) 14%, transparent); border-radius: 12px; }
+@media (max-width: 639px) { .case-studies { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
