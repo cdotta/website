@@ -31,6 +31,10 @@ export const site = {
 export const hero = {
   lines: ['senior software'],
   accentLine: 'engineer.',
+  experienceHeading: 'where the nine years went.',
+  // Rendered as HTML. <span class="text-fg"> lifts a phrase to the brighter ink.
+  intro:
+    "Backend engineer, nine years in, mostly Go and PostgreSQL. Most recently I ran the ledger at a payments company, where <span class=\"text-fg\">a double-counted event is somebody being paid twice</span>, so idempotency stopped being theory. Write your own version of this paragraph \u2014 two or three sentences, one of them concrete enough to argue with.",
 };
 
 // One list per row. The web joins items with ` · `, the résumé with `, ` — keep them
