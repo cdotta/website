@@ -29,8 +29,8 @@ export const site = {
 
 // Headline rendered with the final clause in the accent color.
 export const hero = {
-  lines: ['senior software', 'engineer,'],
-  accentLine: 'backend mostly.',
+  lines: ['senior software'],
+  accentLine: 'engineer.',
 };
 
 // One list per row. The web joins items with ` · `, the résumé with `, ` — keep them
