@@ -19,13 +19,18 @@ if (!(await exists(join(root, 'content')))) {
   console.log('content/ created from content.example/ — edit content/site.ts');
 }
 
+// The Docker build excludes resume/ (see .dockerignore), so there is no résumé to
+// build there. Decide that up front: creating resume/headshot.jpg would otherwise
+// make the directory exist and defeat a later check for it.
+const buildResume = await exists(join(root, 'resume/resume.css'));
+
 // Images live in content/ but have to be served from public/ and resume/, both
 // of which are gitignored at those paths. content/ wins; content.example/ only
 // fills a gap, so a clone renders something instead of a broken image.
 for (const [asset, target] of [
   ['portrait.jpg', 'public/portrait.jpg'],
   ['og.png', 'public/og.png'],
-  ['headshot.jpg', 'resume/headshot.jpg'],
+  ...(buildResume ? [['headshot.jpg', 'resume/headshot.jpg']] : []),
 ]) {
   const dest = join(root, target);
   const own = join(root, 'content', asset);
@@ -81,8 +86,7 @@ ${llms.contact} Best reached at ${site.email}.
 await writeFile(join(root, 'public/llms.txt'), llmsTxt);
 
 // ------------------------------------------------------------ resume HTML
-// Skipped inside the Docker build, which excludes resume/ (see .dockerignore).
-if (await exists(join(root, 'resume'))) {
+if (buildResume) {
   const css = await readFile(join(root, 'resume/resume.css'), 'utf8');
   const mono = "'Geist Mono',ui-monospace,monospace";
   const serif = "'Cormorant Garamond',serif";
@@ -160,4 +164,4 @@ ${earlier
   await writeFile(join(root, 'resume/resume-print.html'), html);
 }
 
-console.log('content built: public/llms.txt, resume/resume-print.html');
+console.log(`content built: public/llms.txt${buildResume ? ', resume/resume-print.html' : ''}`);
