@@ -37,6 +37,24 @@ Don't edit those two by hand; they get overwritten. Layout and styling live in
 keyboard-driven old-game menu (`src/pages/retro.astro`). Not linked from
 anywhere.
 
+## Writing
+
+Posts are Markdown files in **`content/posts/`**, gitignored like the rest of
+`content/`. The file name is the URL: `content/posts/my-setup.md` is served at
+`/blog/my-setup`. Front matter:
+
+```md
+---
+title: My setup
+description: One line, used on the index and as the share description.
+date: 2026-09-23
+draft: true   # optional — left out of the build until you remove it
+---
+```
+
+`content.example/posts/` holds one placeholder post so a fresh clone renders a
+blog.
+
 ## The downloadable résumé (PDF)
 
 The "download résumé" buttons link to a real, print-optimized 2-page PDF, not a

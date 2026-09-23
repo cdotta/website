@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { site } from '../../config';
+
+const posts = (await getCollection('posts', (p) => !p.data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+// Dates are parsed as UTC midnight; formatting in local time would show the day before.
+const fmt = (d: Date) => d.toLocaleDateString('en', { dateStyle: 'long', timeZone: 'UTC' });
+---
+
+<Layout title={`Writing · ${site.name}`}>
+  <main class="mx-auto max-w-[760px] px-6 py-16 sm:px-12 sm:py-24">
+    <a href="/" class="font-serif text-[18px] italic">← {site.handle}</a>
+    <div class="eyebrow mb-4 mt-12">writing</div>
+    <h1 class="display m-0 text-[clamp(40px,8vw,64px)] leading-none text-fg">
+      notes<span class="text-mauve">.</span>
+    </h1>
+    <ul class="mt-14 grid gap-10">
+      {posts.map((p) => (
+        <li>
+          <a href={`/blog/${p.id}`} class="group block">
+            <div class="font-mono text-[11px] tracking-[0.16em] text-faint">{fmt(p.data.date)}</div>
+            <h2 class="mt-2 font-serif text-[28px] font-medium italic leading-tight text-fg group-hover:text-mauve">
+              {p.data.title}
+            </h2>
+            <p class="mt-2 text-[16px] leading-[1.6] text-fg-soft">{p.data.description}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+    {posts.length === 0 && <p class="text-muted">Nothing here yet.</p>}
+  </main>
+</Layout>
