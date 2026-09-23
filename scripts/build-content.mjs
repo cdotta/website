@@ -20,17 +20,15 @@ if (!(await exists(join(root, 'content')))) {
 }
 
 // The Docker build excludes resume/ (see .dockerignore), so there is no résumé to
-// build there. Decide that up front: creating resume/headshot.jpg would otherwise
-// make the directory exist and defeat a later check for it.
+// build there.
 const buildResume = await exists(join(root, 'resume/resume.css'));
 
-// Images live in content/ but have to be served from public/ and resume/, both
-// of which are gitignored at those paths. content/ wins; content.example/ only
-// fills a gap, so a clone renders something instead of a broken image.
+// Images live in content/ but have to be served from public/, where they are
+// gitignored. content/ wins; content.example/ only fills a gap, so a clone
+// renders something instead of a broken image.
 for (const [asset, target] of [
   ['portrait.jpg', 'public/portrait.jpg'],
   ['og.png', 'public/og.png'],
-  ...(buildResume ? [['headshot.jpg', 'resume/headshot.jpg']] : []),
 ]) {
   const dest = join(root, target);
   const own = join(root, 'content', asset);
@@ -129,7 +127,6 @@ ${css.trimEnd()}
       ].join('&nbsp;·&nbsp;')}</div>
       <div style="font-family:${mono}; font-size:8.5pt; letter-spacing:0.02em; color:#6E6574; margin-top:4px;">${plain(site.location)}</div>
     </div>
-    <img src="${resume.headshot}" alt="${plain(site.name)}" style="width:0.95in; height:0.95in; border-radius:8px; object-fit:cover; border:1px solid #D9D2DE; flex-shrink:0;">
   </header>
   <p style="font-size:10pt; line-height:1.5; color:#3a3442; margin:0 0 18px;">
     ${plain(resume.summary)}

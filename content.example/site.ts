@@ -4,7 +4,7 @@
 //
 // `content/` is gitignored, so your details never enter the repo. Everything the
 // site shows — homepage, retro page, résumé PDF, llms.txt — is generated from
-// this one file. Replace portrait.jpg, headshot.jpg and og.png alongside it.
+// this one file. Replace portrait.jpg and og.png alongside it.
 
 export const site = {
   name: 'Robin Vahl',
@@ -164,7 +164,6 @@ export const education = [
 // terser than the homepage — but every fact below it comes from the data above.
 export const resume = {
   title: 'Senior Backend Engineer — Payments & Distributed Systems',
-  headshot: 'headshot.jpg',
   summary:
     'Backend engineer, nine years in Go and PostgreSQL. Most recently Staff Engineer on the ledger at a Series B payments company, where a double-counted event is somebody being paid twice. Owns the whole thing: schema design, the zero-downtime migrations, the alerting, the on-call pager.',
 };

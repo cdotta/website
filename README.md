@@ -17,12 +17,11 @@ npm run dev                     # http://localhost:4321
 
 Edit **`content/site.ts`** — name, role, contact links, skills, experience,
 projects, education, plus the résumé and llms.txt copy. It is the only file with
-personal data in it. Replace the three placeholder images beside it:
+personal data in it. Replace the two placeholder images beside it:
 
 | File | Used for |
 |---|---|
 | `content/portrait.jpg` | homepage hero (copied to `public/portrait.jpg`) |
-| `content/headshot.jpg` | résumé header (copied to `resume/headshot.jpg`) |
 | `content/og.png` | social share card (copied to `public/og.png`) |
 
 Everything else is generated from `content/site.ts` by
