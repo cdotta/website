@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { site } from '../../config';
 
-const posts = (await getCollection('posts', (p) => !p.data.draft)).sort(
+const posts = (await getCollection('posts', (p) => import.meta.env.DEV || !p.data.draft)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 // Dates are parsed as UTC midnight; formatting in local time would show the day before.

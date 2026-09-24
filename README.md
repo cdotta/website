@@ -48,7 +48,7 @@ Posts are Markdown files in **`content/posts/`**, gitignored like the rest of
 title: My setup
 description: One line, used on the index and as the share description.
 date: 2026-09-23
-draft: true   # optional — left out of the build until you remove it
+draft: true   # optional — shown by `npm run dev`, left out of the build
 ---
 ```
 

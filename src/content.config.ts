@@ -3,7 +3,8 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 // Posts live in the gitignored content/ with the rest of the personal data.
-// A post with `draft: true` builds nowhere, so it can sit in content/ across a deploy.
+// A post with `draft: true` shows under `npm run dev` only; the production build
+// leaves it out, so it can sit in content/ across a deploy.
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './content/posts' }),
   schema: z.object({
