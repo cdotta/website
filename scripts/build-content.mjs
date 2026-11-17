@@ -55,7 +55,7 @@ const llmsTxt = `# ${site.name}
 
 ## About
 
-- **Role:** ${site.role} — high-scale APIs & distributed systems
+- **Role:** ${site.role}, high-scale APIs & distributed systems
 - **Location:** ${site.location}
 - **Experience:** ${llms.years}
 - **Core stack:** ${llms.coreStack}
@@ -75,7 +75,7 @@ ${llms.highlights.map((h) => `- ${h}`).join('\n')}
 
 ## Projects
 
-${projects.map((p) => `- [${p.name}](${p.href}) — ${p.description}`).join('\n')}
+${projects.map((p) => `- [${p.name}](${p.href}): ${p.description}`).join('\n')}
 
 ## Contact
 
@@ -94,7 +94,7 @@ if (buildResume) {
   const entry = (job) => `
   <div class="rz-entry">
     <div class="rz-role" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px;">
-      <span style="font-family:${serif}; font-style:italic; font-weight:600; font-size:15pt; color:#312B3A;">${plain(job.org)}${job.meta ? ` <span style="font-size:10pt; color:#6E6574;">(${plain(job.meta)})</span>` : ''} — ${plain(job.role)}</span>
+      <span style="font-family:${serif}; font-style:italic; font-weight:600; font-size:15pt; color:#312B3A;">${plain(job.org)}${job.meta ? ` <span style="font-size:10pt; color:#6E6574;">(${plain(job.meta)})</span>` : ''}, ${plain(job.role)}</span>
       <span style="font-family:${mono}; font-size:8.5pt; color:#A8A2AE; white-space:nowrap;">${enDash(job.period)}</span>
     </div>
     <div style="display:grid; gap:5px; margin-top:7px;">
@@ -106,7 +106,7 @@ ${job.bullets.map((b) => `      <div class="rz-bullet"><span>•</span><span>${p
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>${site.name} — Résumé</title>
+<title>${site.name} · Résumé</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -147,13 +147,13 @@ ${experience.map(entry).join('\n')}
 ${earlier
   .map(
     (e) =>
-      `    <div style="font-size:9.5pt; line-height:1.45; color:#3a3442;"><span style="font-weight:600; color:#312B3A;">${plain(e.name)} — ${plain(e.role)} (${e.years})</span> — ${plain(e.body)}</div>`
+      `    <div style="font-size:9.5pt; line-height:1.45; color:#3a3442;"><span style="font-weight:600; color:#312B3A;">${plain(e.name)}, ${plain(e.role)} (${e.years}).</span> ${plain(e.body)}</div>`
   )
   .join('\n')}
   </div>
   <h2>Education</h2>
   <div style="font-size:9.5pt; line-height:1.45; color:#3a3442;">
-    ${education.map((ed) => `${plain(ed.title)} — ${plain(ed.org)}, ${ed.year}`).join('&nbsp;&nbsp;·&nbsp;&nbsp;')}
+    ${education.map((ed) => `${plain(ed.title)}, ${plain(ed.org)}, ${ed.year}`).join('&nbsp;&nbsp;·&nbsp;&nbsp;')}
   </div>
 </body>
 </html>
