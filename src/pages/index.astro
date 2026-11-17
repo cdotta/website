@@ -87,10 +87,12 @@ const nav = [
           set:html={hero.intro}
         />
 
-        <p class="mt-5 text-[15px] leading-relaxed text-muted">{site.availability}</p>
-        <dl class="proof-points">
-          {hero.stats.map((s) => (<div><dt>{s.value}</dt><dd>{s.label}</dd></div>))}
-        </dl>
+        {site.availability && <p class="mt-5 text-[15px] leading-relaxed text-muted">{site.availability}</p>}
+        {hero.stats.length > 0 && (
+          <dl class="proof-points">
+            {hero.stats.map((s) => (<div><dt>{s.value}</dt><dd>{s.label}</dd></div>))}
+          </dl>
+        )}
         <div class="mt-9 flex flex-wrap items-center gap-7">
           <a href={site.resumePdf} download class="btn-solid">
             download résumé

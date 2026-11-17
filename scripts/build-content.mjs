@@ -79,7 +79,7 @@ ${projects.map((p) => `- [${p.name}](${p.href}) — ${p.description}`).join('\n'
 
 ## Contact
 
-${site.availability} Best reached at ${site.email}.
+${site.availability ? `${site.availability} ` : ''}Best reached at ${site.email}.
 `;
 await writeFile(join(root, 'public/llms.txt'), llmsTxt);
 
