@@ -259,3 +259,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .agent-project { padding: 18px 24px; border: 1px solid color-mix(in oklab, var(--color-fg) 14%, transparent); border-radius: 12px; }
 @media (max-width: 639px) { .case-studies { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+/* Blog post body — rendered Markdown, so style the bare elements. */
+.post { font-size: 17px; line-height: 1.75; color: var(--color-fg-soft); }
+.post > * + * { margin-top: 1.25em; }
+.post h2, .post h3 { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--color-fg); line-height: 1.2; margin-top: 2em; }
+.post h2 { font-size: 32px; }
+.post h3 { font-size: 25px; }
+.post a { text-decoration: underline; text-underline-offset: 3px; }
+.post strong { color: var(--color-fg); }
+.post ul, .post ol { padding-left: 1.4em; }
+.post ul { list-style: disc; }
+.post ol { list-style: decimal; }
+.post li + li { margin-top: 0.4em; }
+.post blockquote { border-left: 2px solid var(--color-mauve); padding-left: 1em; font-style: italic; }
+.post code { font-family: var(--font-mono); font-size: 0.88em; }
+.post :not(pre) > code { background: var(--color-panel); padding: 0.1em 0.35em; border-radius: 4px; }
+.post pre { font-size: 14px; line-height: 1.6; padding: 18px 20px; border-radius: 8px; overflow-x: auto; }
+.post img { border-radius: 8px; }
+.post hr { border-color: color-mix(in oklab, var(--color-fg) 14%, transparent); margin: 2.5em 0; }

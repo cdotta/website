@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { site } from '../../config';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', (p) => import.meta.env.DEV || !p.data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const date = post.data.date.toLocaleDateString('en', { dateStyle: 'long', timeZone: 'UTC' });
+---
+
+<Layout title={`${post.data.title} · ${site.name}`} description={post.data.description}>
+  <main class="mx-auto max-w-[720px] px-6 py-16 sm:px-12 sm:py-24">
+    <a href="/blog" class="font-serif text-[18px] italic">← writing</a>
+    <div class="mt-12 font-mono text-[11px] tracking-[0.16em] text-faint">{date}</div>
+    <h1 class="display mt-3 text-[clamp(36px,7vw,56px)] leading-[1.05] text-fg">{post.data.title}</h1>
+    <article class="post mt-10">
+      <Content />
+    </article>
+  </main>
+</Layout>
