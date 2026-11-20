@@ -243,9 +243,13 @@ const nav = [
               style={`--reveal-delay: ${i * 90}ms`}
             >
               <div>
-                <div class="project-preview" aria-label={p.name === 'Journal' ? 'Journal features' : 'MCP server capabilities'}>
-                  {p.name === 'Journal' ? <><span>Journal</span><div class="preview-steps"><span>Daily log</span><span>Habits</span><span>Monthly view</span></div><p>Capture → organize → reflect</p></> : <><span>Remote MCP server</span><div class="preview-steps"><span>Authentication</span><span>Tenant isolation</span><span>Integration tests</span></div><p>Hono · Streamable HTTP</p></>}
-                </div>
+                {p.preview && (
+                  <div class="project-preview" aria-label={`${p.name} overview`}>
+                    <span>{p.preview.title}</span>
+                    <div class="preview-steps">{p.preview.steps.map((step) => <span>{step}</span>)}</div>
+                    <p>{p.preview.note}</p>
+                  </div>
+                )}
                 <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                   <h3 class="font-serif text-[23px] font-medium italic leading-tight text-fg group-hover:text-mauve">
                     {p.name}
