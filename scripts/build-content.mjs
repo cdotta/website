@@ -102,6 +102,9 @@ ${job.bullets.map((b) => `      <div class="rz-bullet"><span>•</span><span>${p
     </div>
   </div>`;
 
+  const row = (head, body) =>
+    `    <div style="font-size:9.5pt; line-height:1.45; color:#3a3442;"><span style="font-weight:600; color:#312B3A;">${plain(head)}</span> ${plain(body)}</div>`;
+
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,15 +144,17 @@ ${skills
   .join('\n')}
   </div>
   <h2>Experience</h2>
-${experience.map(entry).join('\n')}
+${experience.filter((job) => !job.sideProject).map(entry).join('\n')}
   <h2>Earlier Experience</h2>
   <div style="display:grid; gap:9px; margin-bottom:18px;">
-${earlier
-  .map(
-    (e) =>
-      `    <div style="font-size:9.5pt; line-height:1.45; color:#3a3442;"><span style="font-weight:600; color:#312B3A;">${plain(e.name)}, ${plain(e.role)} (${e.years}).</span> ${plain(e.body)}</div>`
-  )
-  .join('\n')}
+${earlier.map((e) => row(`${e.name}, ${e.role} (${e.years}).`, e.body)).join('\n')}
+  </div>
+  <h2>Projects</h2>
+  <div style="display:grid; gap:9px; margin-bottom:18px;">
+${[
+  ...projects.map((p) => row(`${p.name} (${p.href.replace(/^https?:\/\//, '')}).`, p.description)),
+  ...experience.filter((job) => job.sideProject).map((job) => row(`${job.org} (${job.period}).`, job.bullets.join(' '))),
+].join('\n')}
   </div>
   <h2>Education</h2>
   <div style="font-size:9.5pt; line-height:1.45; color:#3a3442;">

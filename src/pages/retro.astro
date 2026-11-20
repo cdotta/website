@@ -68,7 +68,7 @@ const level = new Date().getFullYear() - 2013;
         <div class="box-title">WORK</div>
         <ul class="menu cards">
           {
-            experience.map((job, i) => (
+            experience.map((job, i) => !job.sideProject && (
               <li data-go={`work-${i}`}>
                 <span class="card-title">{job.org}</span>
                 <span class="dim">{job.period}{job.role && ` · ${job.role}`}</span>
@@ -151,6 +151,14 @@ const level = new Date().getFullYear() - 2013;
                   <span class="body">{p.description}</span>
                   <span class="dim">{p.stack} · {p.linkLabel} ↗</span>
                 </a>
+              </li>
+            ))
+          }
+          {
+            experience.map((job, i) => job.sideProject && (
+              <li data-go={`work-${i}`}>
+                <span class="card-title">{job.org}</span>
+                <span class="dim">{job.period}</span>
               </li>
             ))
           }
